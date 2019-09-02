@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aacf0b65-6426-4cd4-b00d-2ebfa9947ae6" name="Default Changelist" comment="第一次提交">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hrm_plat_web/node_modules/新建文本文档.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="aacf0b65-6426-4cd4-b00d-2ebfa9947ae6" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -213,7 +209,7 @@
       <workItem from="1567351301277" duration="2177000" />
       <workItem from="1567387160616" duration="16564000" />
       <workItem from="1567434905511" duration="35000" />
-      <workItem from="1567435166232" duration="689000" />
+      <workItem from="1567435166232" duration="937000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1567434378734</created>
@@ -229,11 +225,25 @@
       <option name="project" value="LOCAL" />
       <updated>1567434476652</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="第一次提交">
+      <created>1567435992757</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1567435992757</updated>
+    </task>
+    <task id="LOCAL-00004" summary="第一次提交">
+      <created>1567436088512</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1567436088512</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24401000" />
+    <option name="totallyTimeSpent" value="24649000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="423" y="0" width="1470" height="1042" extended-state="0" />
@@ -242,14 +252,14 @@
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.2496454" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.2496454" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="JRebel" order="5" side_tool="true" />
       <window_info id="npm" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Spring" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="3" visible="true" weight="0.17731278" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.17731278" />
       <window_info anchor="bottom" id="Database Changes" order="4" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="6" />
