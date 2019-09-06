@@ -8,6 +8,7 @@ import Page5 from './views/nav2/Page5.vue'
 import Page6 from './views/nav3/Page6.vue'
 import echarts from './views/charts/echarts.vue'
 import CourseType from './views/course/courseType.vue'
+import Course from './views/course/course.vue'
 import TenantType from './views/tenant/tenantType.vue'
 import Tenant from './views/tenant/tenant.vue'
 
@@ -48,7 +49,7 @@ let routes = [
         iconCls: 'el-icon-video-camera',
         children: [
             {path: '/courseType', component: CourseType, name: '课程类型'},
-            {path: '/form', component: Table, name: '课程'},
+            {path: '/course', component: Course, name: '课程'},
         ]
     },
     {

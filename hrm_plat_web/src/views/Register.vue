@@ -21,6 +21,27 @@
             </el-form-item>
             <el-form-item prop="logo" label="机构Logo">
                 <el-input type="text" v-model="tenant.logo" auto-complete="off" placeholder="请输入logo！"></el-input>
+                <el-upload
+                        class="upload-demo"
+                        action="http://127.0.0.1:9527/services/fastdfs/fastdfs"
+                        :on-preview="handlePreview"
+                        :on-remove="handleRemove"
+                        :file-list="fileList"
+                        :on-success="handleSuccess"
+                        list-type="picture">
+                    <el-button size="small" type="primary">点击上传</el-button>
+                    <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+                </el-upload>
+            </el-form-item>
+            <el-form-item prop="tenantType" label="机构类型">
+                <el-select v-model="tenant.tenantType" placeholder="请选择">
+                    <el-option
+                            v-for="item in tenantTypes"
+                            :key="item.id"
+                            :label="item.name"
+                            :value="item.id">
+                    </el-option>
+                </el-select>
             </el-form-item>
             <el-form-item prop="adminUser.username" label="机构账号">
                 <el-input type="text" v-model="tenant.username" auto-complete="off" placeholder="请输入账号！"></el-input>
@@ -93,10 +114,11 @@
             }
             return {
                 meals: [],
+                tenantTypes: [],
                 keyword: '',
                 dialogVisable: false,
                 // fileList: [{"name":"xxx","http://localhost/"+this.tenant.logo}],
-                fileList: [{name: "xxx", url: "http://localhost/uploads/63f18e2b-0717-4d38-b1d8-b29ab463706f.jpg"}],
+                //fileList: [{name: "xxx", url: "http://localhost/uploads/63f18e2b-0717-4d38-b1d8-b29ab463706f.jpg"}],
                 //tenant:tenant 为了做数据表单校验不要嵌套对象
                 tenant: {
                     companyName: '',
@@ -108,7 +130,8 @@
                     email: '',
                     password: '',
                     comfirmPassword: '',
-                    meals: []
+                    meals: [],
+                    tenantType: null
                 },
                 formRules: {
                     // companyName: [
@@ -143,12 +166,19 @@
         },
         mounted() {
             this.getMeals();
+            this.getTenantTypes();
         },
         methods: {
             getMeals() {
-                this.$http.patch("/sysmanage/meal/") //
+                this.$http.patch("/sysmanage/meal/")
                     .then(result => {
                         this.meals = result.data
+                    });
+            },
+            getTenantTypes() {
+                this.$http.patch("/sysmanage/tenantType/")
+                    .then(result => {
+                        this.tenantTypes = result.data
                     });
             },
             selectAdrressConfirm() {
@@ -162,10 +192,6 @@
                 this.dialogVisable = true;
             },
             handleSuccess(response, file, fileList) {
-                console.log("===========")
-                console.log(response);
-                console.log(file);
-                console.log(fileList);
                 this.tenant.logo = response;
             },
             handleRemove(file, fileList) {
