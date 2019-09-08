@@ -42,7 +42,7 @@
             </el-table-column>
             <el-table-column prop="name" label="名称">
             </el-table-column>
-            <el-table-column prop="courseTypeId.name" label="类型">
+            <el-table-column prop="courseType.name" label="类型">
             </el-table-column>
             <el-table-column prop="tenantName" label="机构">
             </el-table-column>
@@ -91,7 +91,11 @@
                     </el-radio-group>
                 </el-form-item>
                 <el-form-item label="课程类型" prop="courseTypeId">
-                    <el-input v-model="course.courseTypeId" auto-complete="off"></el-input>
+                    <!--<el-input v-model="course.courseTypeId" auto-complete="off"></el-input>-->
+                    <el-cascader v-model="course.courseTypeId"
+                                 :options="typeTree"
+                                 :props="{ checkStrictly: true,value:'id',label:'name'}"
+                                 clearable></el-cascader>
                 </el-form-item>
                 <el-form-item label="简介" prop="intro">
                     <el-input v-model="course.detail.intro" auto-complete="off"></el-input>
@@ -140,7 +144,8 @@
                 },
                 formRules: {},
                 sels: [],
-                delids: []
+                delids: [],
+                typeTree: []
             }
         },
         methods: {
@@ -161,6 +166,13 @@
                         //关闭加载圈
                         this.listLoading = false;
                     })
+            },
+            getTypeTree() {
+                //分页查询
+                this.$http.get("/course/courseType/treeData")
+                    .then(result => {
+                        this.typeTree = result.data;
+                    });
             },
             online() {
                 console.log(this.sels) //是对象数组
@@ -305,6 +317,7 @@
                 //打开对话框
                 this.formVisible = true;
                 this.getCourseLevels();
+                this.getTypeTree();
             },
             handleSuccess(response, file, fileList) {
                 console.log(response);
@@ -321,11 +334,13 @@
             edit(row) {
                 //拷贝后面对象的值到新对象,防止后面代码改动引起模型变化
                 let courseTemp = Object.assign({}, row);
-
+                console.log(this.course.detail.intro)
                 //回显数据
                 this.course = courseTemp;
                 //显示
                 this.formVisible = true;
+                this.getCourseLevels();
+                this.getTypeTree();
             },
             save() {//合并了添加和修改
                 this.$refs.course.validate((valid) => {
@@ -334,6 +349,7 @@
                             this.saveLoading = true;
                             //拷贝后面对象的值到新对象,防止后面代码改动引起模型变化
                             let para = Object.assign({}, this.course);
+                            para.courseTypeId = para.courseTypeId[para.courseTypeId.length-1]
                             console.log(para);
                             console.log("1111111111");
                             this.$http.put("/course/course/", para).then((res) => {

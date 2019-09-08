@@ -89,10 +89,6 @@
                         </el-option>
                     </el-select>-->
                 </el-form-item>
-                <!--                <el-form-item label="是否启用" prop="states">-->
-                <!--                    <el-radio v-model="courseType.states" label="true">启用</el-radio>-->
-                <!--                    <el-radio v-model="courseType.states" label="false">禁用</el-radio>-->
-                <!--                </el-form-item>-->
             </el-form>
             <div slot="footer" class="dialog-footer">
                 <el-button @click.native="formVisible = false">取消</el-button>
